@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config()
 
-const port = 7000;
+const port = (process.env.PORT||7000);
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -81,8 +81,6 @@ client.connect(err => {
 	console.log("database Connected");
 	// client.close();
 });
-
-
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`)
 })
